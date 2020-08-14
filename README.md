@@ -2,9 +2,16 @@
 
 > Repositório utilizado para estudar Symfony4
 
+---
+
 ## Material
 - [Ambiente PHP](https://github.com/yurigauermarques/ambiente-php)
 - [Symfony 4](https://symfony.com/4)
+- [Symfony Documentation](https://symfony.com/doc/4.4/index.html)
+
+---
+
+## Instalação e Configuração
   - [Setup](https://symfony.com/doc/4.4/setup.html)
     - Instalação para a aplicação web tradicional
       ```bash
@@ -13,11 +20,18 @@
     - Configuração
       - **host**
         - editar o `hosts`
-        - adicione o conteúdo no final
+          - no **Windows**  `C:\Windows\System32\drivers\etc `
+          - no **CentOS**   `/etc/hosts`
+        - adicione o conteúdo no final do arquivo
           ```bash
           127.0.0.1 estudo-syfmony-4.localhost
           ```
+      - **Configurar o Web Server**
+        - [Como configurar o webserver](https://symfony.com/doc/4.4/setup/web_server_configuration.html#nginx)
 
+---
+
+##
 
 ---
       What's next?
