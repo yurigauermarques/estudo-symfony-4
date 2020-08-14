@@ -6,6 +6,6 @@
 !/docker/mysql/sql
 
 /docker/nginx/logs/*
-!/docker/nginx/logs/api
-/docker/nginx/logs/api/*
-!docker/nginx/logs/api/.gitkeep
+!/docker/nginx/logs/app
+/docker/nginx/logs/app/*
+!docker/nginx/logs/app/.gitkeep
