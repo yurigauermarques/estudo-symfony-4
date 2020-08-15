@@ -5,7 +5,14 @@ services:
         build:
             context: ./docker/php/
             dockerfile: Dockerfile
-        container_name: PHP7
+        container_name: PHP7        
+        environment:
+#          - APP_ENV=dev
+#          - APP_DEBUG=0
+#          - APP_SECRET=EDITME
+          - DATABASE_URL=mysql://root:${MYSQL_ROOT_PASSWORD}@${MYSQL_HOST}:3306/${MYSQL_DATABASE}?serverVersion=8
+#          - MAILER_URL=smtp://localhost
+#          - PHP_DATE_TIMEZONE=${PHP_DATE_TIMEZONE:-UTC}
         volumes:
             - ./app:/var/www/app            
         working_dir: /var/www/app
@@ -17,7 +24,7 @@ services:
             - "80:80"
             - "443:443"
         volumes:
-            - ./app/web:/var/www/app/public
+            - ./app/public:/var/www/app/public
             - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
             - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
             - ./docker/nginx/logs:/var/log/nginx/
@@ -26,7 +33,7 @@ services:
 
     mysql:
         image: mysql:8
-        container_name: MySQL
+        container_name: ${MYSQL_HOST}
         command: --default-authentication-plugin=mysql_native_password
         environment:
           - MYSQL_DATABASE=${MYSQL_DATABASE}
@@ -39,16 +46,16 @@ services:
         ports:
             - 3306:3306
             
-    composer:
-        image: composer:1
-        container_name: Composer
-        command: install
-#        command: update
-        environment:
-          - MYSQL_HOST=${MYSQL_HOST}
-          - MYSQL_DATABASE=${MYSQL_DATABASE}
-          - MYSQL_USER=${MYSQL_USER}
-          - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-        volumes:
-            - ./app:/app/
-            - ~/.ssh:/root/.ssh
+#    composer:
+#        image: composer:1
+#        container_name: Composer
+#        command: install
+##        command: update
+#        environment:
+#          - MYSQL_HOST=${MYSQL_HOST}
+#          - MYSQL_DATABASE=${MYSQL_DATABASE}
+#          - MYSQL_USER=${MYSQL_USER}
+#          - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+#        volumes:
+#            - ./app:/app/
+#            - ~/.ssh:/root/.ssh

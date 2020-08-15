@@ -12,22 +12,31 @@
 ---
 
 ## Instalação e Configuração
-  - [Setup](https://symfony.com/doc/4.4/setup.html)
-    - Instalação para a aplicação web tradicional
-      ```bash
-      docker run --rm --interactive --tty --volume  C:\Users\yurig\Projetos\estudo-symfony-4\:/app composer create-project symfony/website-skeleton:"^4.4" app;
-      ```
-    - Configuração
-      - **host**
-        - editar o `hosts`
-          - no **Windows**  `C:\Windows\System32\drivers\etc `
-          - no **CentOS**   `/etc/hosts`
-        - adicione o conteúdo no final do arquivo
-          ```bash
-          127.0.0.1 estudo-syfmony-4.localhost
-          ```
-      - **Configurar o Web Server**
-        - [Como configurar o webserver](https://symfony.com/doc/4.4/setup/web_server_configuration.html#nginx)
+- [Setup](https://symfony.com/doc/4.4/setup.html)
+  - Instalação para a aplicação web tradicional
+    ```bash
+    docker run --rm --interactive --tty --volume  C:\Users\yurig\Projetos\estudo-symfony-4\:/app composer create-project symfony/website-skeleton:"^4.4" app;
+    ```
+  - Configuração
+    - **host**
+      - editar o `hosts`
+        - no **Windows**  `C:\Windows\System32\drivers\etc `
+        - no **CentOS**   `/etc/hosts`
+      - adicione o conteúdo no final do arquivo
+        ```bash
+        127.0.0.1 estudo-syfmony-4.localhost
+        ```
+    - **Configurar o Web Server**
+      - [Como configurar o webserver](https://symfony.com/doc/4.4/setup/web_server_configuration.html#nginx)
+- [Databases + Doctrine ORM](https://symfony.com/doc/4.4/doctrine.html)
+  ```bash
+  docker run --rm --interactive --tty --volume  C:\Users\yurig\Projetos\estudo-symfony-4\app:/app composer require symfony/orm-pack;
+  ```
+
+- [MakerBundle](https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html)
+  ```bash
+  docker run --rm --interactive --tty --volume  C:\Users\yurig\Projetos\estudo-symfony-4\app:/app composer require --dev symfony/maker-bundle;
+  ```
 
 ---
 
