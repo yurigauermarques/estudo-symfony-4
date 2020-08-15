@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ProdutoCategoria{% endblock %}
+
+{% block body %}
+    <h1>Criar Nova Categoria para produto</h1>
+
+    {{ include('produto_categoria/_form.html.twig') }}
+    <br>
+    <a href="{{ path('produto_categoria_index') }}">voltar para lista</a>
+{% endblock %}
