@@ -7,12 +7,8 @@ services:
             dockerfile: Dockerfile
         container_name: PHP7        
         environment:
-#          - APP_ENV=dev
-#          - APP_DEBUG=0
-#          - APP_SECRET=EDITME
+          - APP_ENV=dev
           - DATABASE_URL=mysql://root:${MYSQL_ROOT_PASSWORD}@${MYSQL_HOST}:3306/${MYSQL_DATABASE}?serverVersion=8
-#          - MAILER_URL=smtp://localhost
-#          - PHP_DATE_TIMEZONE=${PHP_DATE_TIMEZONE:-UTC}
         volumes:
             - ./app:/var/www/app            
         working_dir: /var/www/app
@@ -41,16 +37,17 @@ services:
           - MYSQL_PASSWORD=${MYSQL_PASSWORD}
           - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
           
-        volumes:
-          - ./docker/mysql/sql/data.sql:/docker-entrypoint-initdb.d/data.sql
+#        volumes:
+#          - ./docker/mysql/sql/data.sql:/docker-entrypoint-initdb.d/data.sql
         ports:
             - 3306:3306
             
     adminer:
-      image: adminer
-      restart: always
-      ports:
-        - 8080:8080
+        image: adminer
+        restart: always
+        container_name: Adminer
+        ports:
+            - 8080:8080
             
 #    composer:
 #        image: composer:1
