@@ -8,6 +8,7 @@
 - [Ambiente PHP](https://github.com/yurigauermarques/ambiente-php)
 - [Symfony 4](https://symfony.com/4)
 - [Symfony Documentation](https://symfony.com/doc/4.4/index.html)
+- [Modelo utilizado para montar o container do Node para rodar o encore](https://github.com/symfony/webpack-encore/issues/366)
 
 ---
 
@@ -43,6 +44,12 @@
   docker run --rm --interactive --tty --volume  C:\Users\yurig\Projetos\estudo-symfony-4\app:/app composer require symfony/security-csrf;
   ```
 
+- [Installing Encore](https://symfony.com/doc/4.4/frontend/encore/installation.html)
+  ```bash
+  docker run --rm --interactive --tty --volume  C:\Users\yurig\Projetos\estudo-symfony-4\app:/app composer require symfony/webpack-encore-bundle;
+  docker-compose run --rm node yarn install;
+  ```
+
 ---
 
 ##
@@ -50,3 +57,5 @@
 
 - Form
     - [Types](https://symfony.com/doc/4.4/reference/forms/types.html)
+- Encore
+    - [Encore: Setting up your Project](https://symfony.com/doc/4.4/frontend/encore/simple-example.html)
