@@ -47,7 +47,6 @@
 - [Installing Encore](https://symfony.com/doc/4.4/frontend/encore/installation.html)
   ```bash
   docker run --rm --interactive --tty --volume  C:\Users\yurig\Projetos\estudo-symfony-4\app:/app composer require symfony/webpack-encore-bundle;
-  docker-compose run --rm composer composer install
   docker-compose run --rm node yarn install;
   ```
 
