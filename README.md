@@ -31,31 +31,47 @@
       - [Como configurar o webserver](https://symfony.com/doc/4.4/setup/web_server_configuration.html#nginx)
 - [Databases + Doctrine ORM](https://symfony.com/doc/4.4/doctrine.html)
   ```bash
-  docker run --rm --interactive --tty --volume  C:\Users\yurig\Projetos\estudo-symfony-4\app:/app composer require symfony/orm-pack;
+  docker-compose run --rm composer require symfony/orm-pack;
   ```
 
 - [MakerBundle](https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html)
   ```bash
-  docker run --rm --interactive --tty --volume  C:\Users\yurig\Projetos\estudo-symfony-4\app:/app composer require --dev symfony/maker-bundle;
+  docker-compose run --rm composer require --dev symfony/maker-bundle;
   ```
 
 - [CSRF Protection](https://symfony.com/doc/4.4/security/csrf.html)
   ```bash
-  docker run --rm --interactive --tty --volume  C:\Users\yurig\Projetos\estudo-symfony-4\app:/app composer require symfony/security-csrf;
+  docker-compose run --rm composer require symfony/security-csrf;
   ```
 
 - [Installing Encore](https://symfony.com/doc/4.4/frontend/encore/installation.html)
   ```bash
-  docker run --rm --interactive --tty --volume  C:\Users\yurig\Projetos\estudo-symfony-4\app:/app composer require symfony/webpack-encore-bundle;
+  docker-compose run --rm composer require symfony/webpack-encore-bundle;
   docker-compose run --rm node yarn install;
   ```
 
+- [Enabling React.js](https://symfony.com/doc/current/frontend/encore/reactjs.html)
+  ```bash
+  yarn add @babel/preset-react --dev
+  yarn add react react-dom prop-types
+  ```
 ---
 
-##
+## Symfony
 
 
 - Form
     - [Types](https://symfony.com/doc/4.4/reference/forms/types.html)
 - Encore
     - [Encore: Setting up your Project](https://symfony.com/doc/4.4/frontend/encore/simple-example.html)
+
+
+
+
+
+
+
+## Ideias para implementar
+
+- [Aplicação com Symfony e React](https://auth0.com/blog/developing-modern-apps-with-symfony-and-react/)
+- [Symfony Cast](https://symfonycasts.com/screencast/symfony3/reactjs-api)

@@ -1,26 +1,24 @@
 version: "3.8"
 services:
-
     php:
         build:
             context: ./docker/php/
             dockerfile: Dockerfile
         container_name: PHP7
         environment:
-          - APP_ENV=dev
-          - DATABASE_URL=mysql://root:${MYSQL_ROOT_PASSWORD}@${MYSQL_HOST}:3306/${MYSQL_DATABASE}?serverVersion=8
+            - APP_ENV=dev
+            - DATABASE_URL=mysql://root:${MYSQL_ROOT_PASSWORD}@${MYSQL_HOST}:3306/${MYSQL_DATABASE}?serverVersion=8
         volumes:
-            - ./app:/var/www/app            
+            - ./app:/var/www/app
         working_dir: /var/www/app
-        
+
     node:
         image: node:14.8
         container_name: Node
-        command: ["yarn", "dev-server", "--host=0.0.0.0"]
         volumes:
-            - ./app:/var/www/app  
+            - ./app:/var/www/app
         working_dir: /var/www/app
-        
+
     web:
         image: nginx:1.19.1
         container_name: Nginx
@@ -40,28 +38,27 @@ services:
         container_name: ${MYSQL_HOST}
         command: --default-authentication-plugin=mysql_native_password
         environment:
-          - MYSQL_DATABASE=${MYSQL_DATABASE}
-          - MYSQL_USER=${MYSQL_USER}
-          - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-          - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}          
-#        volumes:
-#          - ./docker/mysql/sql/data.sql:/docker-entrypoint-initdb.d/data.sql
+            - MYSQL_DATABASE=${MYSQL_DATABASE}
+            - MYSQL_USER=${MYSQL_USER}
+            - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+        #        volumes:
+        #          - ./docker/mysql/sql/data.sql:/docker-entrypoint-initdb.d/data.sql
         ports:
             - 3306:3306
-            
+
     adminer:
         image: adminer
-        restart: always
+        #        restart: always
         container_name: Adminer
         ports:
             - 8080:8080
-            
+
     composer:
         image: composer:2.0
         container_name: Composer
         command: ["composer"]
         volumes:
             - ./app:/var/www/app
-            - ~/.ssh:/root/.ssh  
+            - ~/.ssh:/root/.ssh
         working_dir: /var/www/app
-            

@@ -18,8 +18,9 @@ class ProdutoCategoriaController extends AbstractController
     /**
      * @Route("/", name="produto_categoria_index", methods={"GET"})
      */
-    public function index(ProdutoCategoriaRepository $produtoCategoriaRepository): Response
-    {
+    public function index(
+        ProdutoCategoriaRepository $produtoCategoriaRepository
+    ): Response {
         return $this->render('produto_categoria/index.html.twig', [
             'produto_categorias' => $produtoCategoriaRepository->findAll(),
         ]);
@@ -31,7 +32,10 @@ class ProdutoCategoriaController extends AbstractController
     public function new(Request $request): Response
     {
         $produtoCategorium = new ProdutoCategoria();
-        $form = $this->createForm(ProdutoCategoriaType::class, $produtoCategorium);
+        $form = $this->createForm(
+            ProdutoCategoriaType::class,
+            $produtoCategorium
+        );
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -61,13 +65,20 @@ class ProdutoCategoriaController extends AbstractController
     /**
      * @Route("/{id}/edit", name="produto_categoria_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, ProdutoCategoria $produtoCategorium): Response
-    {
-        $form = $this->createForm(ProdutoCategoriaType::class, $produtoCategorium);
+    public function edit(
+        Request $request,
+        ProdutoCategoria $produtoCategorium
+    ): Response {
+        $form = $this->createForm(
+            ProdutoCategoriaType::class,
+            $produtoCategorium
+        );
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $this->getDoctrine()
+                ->getManager()
+                ->flush();
 
             return $this->redirectToRoute('produto_categoria_index');
         }
@@ -81,9 +92,16 @@ class ProdutoCategoriaController extends AbstractController
     /**
      * @Route("/{id}", name="produto_categoria_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, ProdutoCategoria $produtoCategorium): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$produtoCategorium->getId(), $request->request->get('_token'))) {
+    public function delete(
+        Request $request,
+        ProdutoCategoria $produtoCategorium
+    ): Response {
+        if (
+            $this->isCsrfTokenValid(
+                'delete' . $produtoCategorium->getId(),
+                $request->request->get('_token')
+            )
+        ) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($produtoCategorium);
             $entityManager->flush();
