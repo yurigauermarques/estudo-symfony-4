@@ -56,53 +56,68 @@
 
 ---
 
-## Encore
-
-- **Documentação**
-
-  - [Installing Encore](https://symfony.com/doc/4.4/frontend/encore/installation.html)
-
-    > Este link leva a documentação que demostra como instalar o `encore`;
-
-  - [Encore: Setting up your Project](https://symfony.com/doc/4.4/frontend/encore/simple-example.html)
-
-    > Este link leva a documentação que demostra como configurar e utilizar o `encore` no seu projeto;
-
-  - [Encore Documentation](https://symfony.com/doc/4.4/frontend.html#encore-toc)
-
-- **Resumo**
-
-  - Instalar o `webpack-encore`
-    ```bash
-    docker-compose run --rm composer require symfony/webpack-encore-bundle;
-    docker-compose run --rm node yarn install;
-    ```
-  - Incluir o `jquery`
-    ```bash
-    docker-compose run --rm node yarn add jquery --dev
-    ```
-  - Incluir o `sass`
-    ```bash
-    docker-compose run --rm node yarn add sass-loader@^8.0.0 node-sass --dev
-    ```
-  - Comandos do `encore`;
-
-    ```bash
-    #compila os assests uma vez
-    docker-compose run --rm node yarn encore dev
-    #recompila os assests automaticamente quando tem mudança nos arquivos
-    docker-compose run --rm node yarn encore dev --watch
-    #cria uma build para produção
-    docker-compose run --rm node yarn encore production
-    ```
-
----
-
 ## Symfony
 
 - Form
   - [Types](https://symfony.com/doc/4.4/reference/forms/types.html)
     - Documentação para implementar os `forms`;
+
+---
+
+## Encore
+
+### Documentação
+
+- [Installing Encore](https://symfony.com/doc/4.4/frontend/encore/installation.html)
+
+  > Este link leva a documentação que demostra como instalar o `encore`;
+
+- [Encore: Setting up your Project](https://symfony.com/doc/4.4/frontend/encore/simple-example.html)
+
+  > Este link leva a documentação que demostra como configurar e utilizar o `encore` no seu projeto;
+
+- [Encore Documentation](https://symfony.com/doc/4.4/frontend.html#encore-toc)
+
+### Resumo
+
+- Instalar o `webpack-encore`
+  ```bash
+  docker-compose run --rm composer require symfony/webpack-encore-bundle;
+  docker-compose run --rm node yarn install;
+  ```
+- Incluir o `jquery`
+  ```bash
+  docker-compose run --rm node yarn add jquery --dev
+  ```
+- Incluir o `sass`
+  ```bash
+  docker-compose run --rm node yarn add sass-loader@^8.0.0 node-sass --dev
+  ```
+- Comandos do `encore`;
+
+  ```bash
+  #compila os assests uma vez
+  docker-compose run --rm node yarn encore dev
+  #recompila os assests automaticamente quando tem mudança nos arquivos
+  docker-compose run --rm node yarn encore dev --watch
+  #cria uma build para produção
+  docker-compose run --rm node yarn encore production
+  ```
+
+---
+
+## Bootstrp
+
+### Documentação
+
+- [Using Bootstrap CSS & JS](https://symfony.com/doc/4.4/frontend/encore/bootstrap.html)
+
+### Resumo
+
+- Instalar o `bootstrap`
+  ```bash
+  docker-compose run --rm node yarn add bootstrap --dev;
+  ```
 
 ---
 
