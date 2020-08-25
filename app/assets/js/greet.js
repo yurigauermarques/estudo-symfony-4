@@ -1,7 +1,5 @@
 // assets/js/greet.js
 
-module.exports = function (name) {
-//export default function(name) {
-    return `Yohoho ${name} - Benvindo ao Encore!`;
+export default function(name) {
+    return `Yohoho ${name} - Bem vindo ao Encore!`;
 };
-

@@ -45,7 +45,7 @@ services:
         #        volumes:
         #          - ./docker/mysql/sql/data.sql:/docker-entrypoint-initdb.d/data.sql
         ports:
-            - 3306:3306
+            - 33061:3306
 
     adminer:
         image: adminer

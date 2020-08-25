@@ -64,7 +64,7 @@
     - [Types](https://symfony.com/doc/4.4/reference/forms/types.html)
 - Encore
     - [Encore: Setting up your Project](https://symfony.com/doc/4.4/frontend/encore/simple-example.html)
-
+    - [Encore Documentation](https://symfony.com/doc/4.4/frontend.html#encore-toc)
 
 
 
