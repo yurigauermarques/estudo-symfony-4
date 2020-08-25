@@ -96,12 +96,6 @@
     docker-compose run --rm node yarn encore production
     ```
 
-- [Enabling React.js](https://symfony.com/doc/current/frontend/encore/reactjs.html)
-  ```bash
-  yarn add @babel/preset-react --dev
-  yarn add react react-dom prop-types
-  ```
-
 ---
 
 ## Symfony
@@ -114,5 +108,13 @@
 
 ## Idéias para implementar
 
+### React
+
 - [Aplicação com Symfony e React](https://auth0.com/blog/developing-modern-apps-with-symfony-and-react/)
+
+- [Enabling React.js](https://symfony.com/doc/current/frontend/encore/reactjs.html)
+  ```bash
+  yarn add @babel/preset-react --dev
+  yarn add react react-dom prop-types
+  ```
 - [Symfony Cast](https://symfonycasts.com/screencast/symfony3/reactjs-api)
