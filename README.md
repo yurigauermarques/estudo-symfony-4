@@ -117,6 +117,7 @@
 - Instalar o `bootstrap`
   ```bash
   docker-compose run --rm node yarn add bootstrap --dev;
+  docker-compose run --rm node yarn add jquery popper.js --dev;
   ```
 
 ---
