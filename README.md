@@ -61,6 +61,7 @@
 - Form
   - [Types](https://symfony.com/doc/4.4/reference/forms/types.html)
     - Documentação para implementar os `forms`;
+  - [Tema da form com Bootstrap 4](https://symfony.com/doc/4.4/form/bootstrap4.html)
 
 ---
 
@@ -111,6 +112,7 @@
 ### Documentação
 
 - [Using Bootstrap CSS & JS](https://symfony.com/doc/4.4/frontend/encore/bootstrap.html)
+- [Documentação do Bootstrap](https://getbootstrap.com/docs/4.5/getting-started/introduction/)
 
 ### Resumo
 
