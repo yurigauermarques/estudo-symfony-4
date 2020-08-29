@@ -6,6 +6,7 @@
  */
 
 import '../css/app.scss'
+import '../css/dashboard.scss'
 
 
 const $ = require('jquery');
@@ -13,7 +14,8 @@ const $ = require('jquery');
 // the bootstrap module doesn't export/return anything
 require('bootstrap');
 
+var dashboard = require('./dashboard');
 
-$(document).ready(function() {
-//    $('[data-toggle="popover"]').popover();
+$(document).ready(function () {
+    //    $('[data-toggle="popover"]').popover();
 });

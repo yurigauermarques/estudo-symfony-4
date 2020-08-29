@@ -1,13 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit ProdutoCategoria{% endblock %}
+{% block title %}
+	Editar uma Categoria para produto
+{% endblock %}
 
-{% block body %}
-    <h1>Edit ProdutoCategoria</h1>
+{% block breadcumb %}
+	Editar uma Categoria para produto
+{% endblock %}
 
-    {{ include('produto_categoria/_form.html.twig', {'button_label': 'Update'}) }}
+{% block conteudo %}
+	<div class="table-responsive">
+		{{ include('produto_categoria/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('produto_categoria_index') }}">back to list</a>
+		<a href="{{ path('produto_categoria_index') }}">back to list</a>
 
-    {{ include('produto_categoria/_delete_form.html.twig') }}
+		{{ include('produto_categoria/_delete_form.html.twig') }}
+	</div>
 {% endblock %}
