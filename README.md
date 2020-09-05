@@ -25,7 +25,7 @@
     - **host**
       - editar o `hosts`
         - no **Windows** `C:\Windows\System32\drivers\etc`
-        - no **CentOS** `/etc/hosts`
+        - no **Linux** `/etc/hosts`
       - adicione o conteúdo no final do arquivo
         ```bash
         127.0.0.1 estudo-syfmony-4.localhost
