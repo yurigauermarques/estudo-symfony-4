@@ -1,38 +1,65 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Produto{% endblock %}
+{% block title %}
+	Produto
+{% endblock %}
 
-{% block body %}
-    <h1>Produto</h1>
+{% block breadcrumb %}
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<i class="fa fa-hammer"></i>
+				<a href="{{path('produto_index')}}">Produto</a>
+			</li>
+			<li class="breadcrumb-item active" aria-current="page">Visualizar</li>
+		</ol>
+	</nav>
+{% endblock %}
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ produto.id }}</td>
-            </tr>
-            <tr>
-                <th>Nome</th>
-                <td>{{ produto.nome }}</td>
-            </tr>
-            <tr>
-                <th>Valor</th>
-                <td>{{ produto.valor }}</td>
-            </tr>
-            <tr>
-                <th>Data_cadastro</th>
-                <td>{{ produto.dataCadastro ? produto.dataCadastro|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Situacao</th>
-                <td>{{ produto.situacao }}</td>
-            </tr>
-        </tbody>
-    </table>
+{% block conteudo %}
+	<div class="table-responsive">
+		<div class="card mb-3">
+			<div class="card-body bg-light">
+				<table class="table table-striped">
+					<tbody>
+						<tr>
+							<th>Id</th>
+							<td>{{ produto.id }}</td>
+						</tr>
+						<tr>
+							<th>Nome</th>
+							<td>{{ produto.nome }}</td>
+						</tr>
+						<tr>
+							<th>Valor</th>
+							<td>{{ produto.valor }}</td>
+						</tr>
+						<tr>
+							<th>Data de cadastro</th>
+							<td>{{ produto.dataCadastro ? produto.dataCadastro|date('Y-m-d') : '' }}</td>
+						</tr>
+						<tr>
+							<th>Situação</th>
+							<td>{{ produto.situacao }}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 
-    <a href="{{ path('produto_index') }}">back to list</a>
+			<div class="card-footer">
+				<div class="row">
+					<div class="col col-8 align-items-end-end">
+						<a class="btn btn-primary btn-sm" href="{{ path('produto_edit', {'id': produto.id}) }}">Editar</a>
+						<a class="btn btn-secondary btn-sm" href="{{ path('produto_index') }}">voltar para Lista</a>
+					</div>
+					<div class="col col-4 float-right">
+						{% if produto.id %}
+							{{ include('produto/_delete_form.html.twig') }}
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
 
-    <a href="{{ path('produto_edit', {'id': produto.id}) }}">edit</a>
-
-    {{ include('produto/_delete_form.html.twig') }}
+	</div>
 {% endblock %}

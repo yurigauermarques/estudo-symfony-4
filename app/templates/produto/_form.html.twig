@@ -1,5 +1,57 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
- 
+<div class="card mb-3">
+	{{ form_start(form) }}
+	<div class="card-body bg-light">
+		<div class="row">
+			<div class="col-12">
+				{% if form_errors(form) %}
+					<div class="alert alert-danger" role="alert">
+						{{ form_errors(form) }}
+					</div>
+				{% endif %}
+
+				<div class="row">
+					<div class="col col-8">
+						{{ form_row(form.nome) }}
+					</div>
+					<div class="col col-4">
+						{{ form_row(form.produtoCategoria) }}
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="col col-4">
+						{{ form_row(form.valor) }}
+					</div>
+					<div class="col col-4">
+						{{ form_row(form.dataCadastro) }}
+					</div>
+					<div class="col col-4">
+						{{ form_row(form.situacao) }}
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col col-12">
+						{{ form_row(form.descricao) }}
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class=" card-footer">
+		<div class="row">
+			<div class="col col-8 align-items-end-end">
+				<button class="btn btn-primary btn-sm">{{ button_label|default('Salvar') }}</button>
+				{{ form_end(form) }}
+				<a class="btn btn-secondary btn-sm" href="{{ path('produto_index') }}">voltar para Lista</a>
+			</div>
+			<div class="col col-4 float-right">
+				{% if produto.id %}
+					{{ include('produto/_delete_form.html.twig') }}
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>

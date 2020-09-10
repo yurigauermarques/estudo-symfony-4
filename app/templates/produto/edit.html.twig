@@ -1,15 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	Edit Produto
+	Produto
 {% endblock %}
 
-{% block body %}
-	<h1>Edit Produto</h1>
+{% block breadcrumb %}
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<i class="fa fa-hammer"></i>
+				<a href="{{path('produto_index')}}">Produto</a>
+			</li>
+			<li class="breadcrumb-item active" aria-current="page">Editar</li>
+		</ol>
+	</nav>
+{% endblock %}
 
-	{{ include('produto/_form.html.twig', {'button_label': 'Update'}) }}
-
-	<a href="{{ path('produto_index') }}">back to list</a>
-
-	{{ include('produto/_delete_form.html.twig') }}
+{% block conteudo %}
+	<div class="table-responsive">
+		{{ include('produto/_form.html.twig', {'button_label': 'Atualizar'}) }}
+	</div>
 {% endblock %}

@@ -113,6 +113,8 @@
 
 - [Using Bootstrap CSS & JS](https://symfony.com/doc/4.4/frontend/encore/bootstrap.html)
 - [Documentação do Bootstrap](https://getbootstrap.com/docs/4.5/getting-started/introduction/)
+- [Font Awesome](https://fontawesome.com/icons?d=gallery&m=free)
+- [Falcon-admin](https://themes.getbootstrap.com/product/falcon-admin-dashboard-webapp-template/)
 
 ### Resumo
 
@@ -121,6 +123,15 @@
   docker-compose run --rm node yarn add bootstrap --dev;
   docker-compose run --rm node yarn add jquery popper.js --dev;
   ```
+- Instalar o `Font Awesome`
+  ```bash
+  docker-compose run --rm node yarn add --dev @fortawesome/fontawesome-free;
+  ```
+  - Adicionar no `app.js`
+    ```js
+    require('@fortawesome/fontawesome-free/css/all.min.css');
+    require('@fortawesome/fontawesome-free/js/all.js');
+    ```
 
 ---
 

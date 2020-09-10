@@ -14,46 +14,50 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ProdutoType extends AbstractType {
+class ProdutoType extends AbstractType
+{
 
-    public function buildForm(FormBuilderInterface $builder, array $options) {
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
         $builder
-                ->add('nome', TextType::class, [
-                    'label' => 'Nome',
-                ])
-                ->add('valor', MoneyType::class)
-                ->add('dataCadastro', DateType::class, [
-                    'label' => 'Data de cadastro'
-                ])
-                ->add('situacao', ChoiceType::class, [
-                    'label' => 'Situação',
-                    'choices' => [
-                        'Ativo' => 'ativo',
-                        'Inativo' => 'inativo',
-                    ]
-                ])
-                ->add('produtoCategoria', EntityType::class, [
-                    'label' => 'Categoria',
-                    'class' => ProdutoCategoria::class,
-                    'query_builder' => function (\Doctrine\ORM\EntityRepository $er) {
-                        $qb = $er->createQueryBuilder('c');
-                        $qb->andWhere($qb->expr()->eq('c.situacao', ':situacao'));
-                        $qb->setParameter(':situacao', 'ativa');
-                        $qb->orderBy('c.nome', 'ASC');
+            ->add('nome', TextType::class, [
+                'label' => 'Nome',
+            ])
+            ->add('valor', MoneyType::class, [
+                'label' => 'Valor',
+            ])
+            ->add('dataCadastro', DateType::class, [
+                'label' => 'Data de cadastro',
+                'format' => 'dd/MM/yyyy',
+            ])
+            ->add('situacao', ChoiceType::class, [
+                'label' => 'Situação',
+                'choices' => [
+                    'Ativo' => 'ativo',
+                    'Inativo' => 'inativo',
+                ]
+            ])
+            ->add('produtoCategoria', EntityType::class, [
+                'label' => 'Categoria',
+                'class' => ProdutoCategoria::class,
+                'query_builder' => function (\Doctrine\ORM\EntityRepository $er) {
+                    $qb = $er->createQueryBuilder('c');
+                    $qb->andWhere($qb->expr()->eq('c.situacao', ':situacao'));
+                    $qb->setParameter(':situacao', 'ativa');
+                    $qb->orderBy('c.nome', 'ASC');
 
-                        return $qb;
-                    },
-                ])
-                ->add('descricao', TextareaType::class, [
-                    'label' => 'Descrição'
-                ])
-        ;
+                    return $qb;
+                },
+            ])
+            ->add('descricao', TextareaType::class, [
+                'label' => 'Descrição'
+            ]);
     }
 
-    public function configureOptions(OptionsResolver $resolver) {
+    public function configureOptions(OptionsResolver $resolver)
+    {
         $resolver->setDefaults([
             'data_class' => Produto::class,
         ]);
     }
-
 }

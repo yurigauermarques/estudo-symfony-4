@@ -6,11 +6,13 @@ use App\Repository\ProdutoCategoriaRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+// use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ProdutoCategoriaRepository::class)
  */
-class ProdutoCategoria {
+class ProdutoCategoria
+{
 
     /**
      * @ORM\Id()
@@ -34,33 +36,40 @@ class ProdutoCategoria {
      */
     private $produto;
 
-    public function __toString() {
+    public function __toString()
+    {
         return $this->getNome();
     }
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->produto = new ArrayCollection();
     }
 
-    public function getId(): ?int {
+    public function getId(): ?int
+    {
         return $this->id;
     }
 
-    public function getNome(): ?string {
+    public function getNome(): ?string
+    {
         return $this->nome;
     }
 
-    public function setNome(string $nome): self {
+    public function setNome(string $nome): self
+    {
         $this->nome = $nome;
 
         return $this;
     }
 
-    public function getSituacao(): ?string {
+    public function getSituacao(): ?string
+    {
         return $this->situacao;
     }
 
-    public function setSituacao(string $situacao): self {
+    public function setSituacao(string $situacao): self
+    {
         $this->situacao = $situacao;
 
         return $this;
@@ -69,11 +78,13 @@ class ProdutoCategoria {
     /**
      * @return Collection|Produto[]
      */
-    public function getProduto(): Collection {
+    public function getProduto(): Collection
+    {
         return $this->produto;
     }
 
-    public function addProduto(Produto $produto): self {
+    public function addProduto(Produto $produto): self
+    {
         if (!$this->produto->contains($produto)) {
             $this->produto[] = $produto;
             $produto->setProdutoCategoria($this);
@@ -82,7 +93,8 @@ class ProdutoCategoria {
         return $this;
     }
 
-    public function removeProduto(Produto $produto): self {
+    public function removeProduto(Produto $produto): self
+    {
         if ($this->produto->contains($produto)) {
             $this->produto->removeElement($produto);
             // set the owning side to null (unless already changed)
@@ -93,5 +105,4 @@ class ProdutoCategoria {
 
         return $this;
     }
-
 }

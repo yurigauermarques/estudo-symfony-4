@@ -1,30 +1,57 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}ProdutoCategoria{% endblock %}
+{% block title %}
+	Categoria de produto
+{% endblock %}
 
-{% block body %}
-    <h1>ProdutoCategoria</h1>
+{% block breadcrumb %}
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<i class="fa fa-hammer"></i>
+				<a href="{{path('produto_categoria_index')}}">Categoria de produto</a>
+			</li>
+			<li class="breadcrumb-item active" aria-current="page">Visualizar</li>
+		</ol>
+	</nav>
+{% endblock %}
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ produto_categorium.id }}</td>
-            </tr>
-            <tr>
-                <th>Nome</th>
-                <td>{{ produto_categorium.nome }}</td>
-            </tr>
-            <tr>
-                <th>Situacao</th>
-                <td>{{ produto_categorium.situacao }}</td>
-            </tr>
-        </tbody>
-    </table>
+{% block conteudo %}
+	<div class="table-responsive">
+		<div class="card mb-3">
+			<div class="card-body bg-light">
+				<table class="table table-striped">
+					<tbody>
+						<tr>
+							<th>Id</th>
+							<td>{{ produto_categoria.id }}</td>
+						</tr>
+						<tr>
+							<th>Nome</th>
+							<td>{{ produto_categoria.nome }}</td>
+						</tr>
+						<tr>
+							<th>Situação</th>
+							<td>{{ produto_categoria.situacao }}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 
-    <a href="{{ path('produto_categoria_index') }}">back to list</a>
+			<div class="card-footer">
+				<div class="row">
+					<div class="col col-8 align-items-end-end">
+						<a class="btn btn-primary btn-sm" href="{{ path('produto_categoria_edit', {'id': produto_categoria.id}) }}">Editar</a>
+						<a class="btn btn-secondary btn-sm" href="{{ path('produto_categoria_index') }}">voltar para Lista</a>
+					</div>
+					<div class="col col-4 float-right">
+						{% if produto_categoria.id %}
+							{{ include('produto_categoria/_delete_form.html.twig') }}
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
 
-    <a href="{{ path('produto_categoria_edit', {'id': produto_categorium.id}) }}">edit</a>
-
-    {{ include('produto_categoria/_delete_form.html.twig') }}
+	</div>
 {% endblock %}

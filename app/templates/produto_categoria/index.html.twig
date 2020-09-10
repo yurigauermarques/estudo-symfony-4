@@ -1,11 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	ProdutoCategoria index
+	Categoria de produto
 {% endblock %}
 
-{% block breadcumb %}
-	ProdutoCategoria index
+{% block breadcrumb %}
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item active">
+				<i class="fa fa-hammer"></i>
+				Categoria de produto
+			</li>
+		</ol>
+	</nav>
 {% endblock %}
 
 {% block conteudo %}
@@ -20,23 +27,27 @@
 				</tr>
 			</thead>
 			<tbody>
-				{% for produto_categorium in produto_categorias %}
+				{% for produto_categoria in produto_categorias %}
 					<tr>
-						<td>{{ produto_categorium.id }}</td>
-						<td>{{ produto_categorium.nome }}</td>
-						<td>{{ produto_categorium.situacao }}</td>
+						<td>{{ produto_categoria.id }}</td>
+						<td>{{ produto_categoria.nome }}</td>
+						<td>{{ produto_categoria.situacao }}</td>
 						<td>
-							<a href="{{ path('produto_categoria_show', {'id': produto_categorium.id}) }}">show</a>
-							<a href="{{ path('produto_categoria_edit', {'id': produto_categorium.id}) }}">edit</a>
+							<a href="{{ path('produto_categoria_show', {'id': produto_categoria.id}) }}" class="btn btn-info btn-sm">
+								<i class="fa fa-eye"></i>Visualizar
+							</a>
+							<a href="{{ path('produto_categoria_edit', {'id': produto_categoria.id}) }}" class="btn btn-secondary  btn-sm">
+								<i class="fa fa-edit"></i>Editar
+							</a>
 						</td>
 					</tr>
 				{% else %}
 					<tr>
-						<td colspan="4">no records found</td>
+						<td colspan="4">Não foram encontrados registros</td>
 					</tr>
 				{% endfor %}
 			</tbody>
 		</table>
 	</div>
-	<a href="{{ path('produto_categoria_new') }}">Create new</a>
+	<a href="{{ path('produto_categoria_new') }}" class="btn btn-primary">Criar novo</a>
 {% endblock %}

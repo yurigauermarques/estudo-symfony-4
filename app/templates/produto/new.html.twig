@@ -1,17 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-  New Produto
+	Produto
 {% endblock %}
 
-{% block body %}
-  <div class="container">
-    <h1>
-      Create new Produto
-    </h1>
+{% block breadcrumb %}
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<i class="fa fa-hammer"></i>
+				<a href="{{path('produto_index')}}">Produto</a>
+			</li>
+			<li class="breadcrumb-item active" aria-current="page">Cadastrar</li>
+		</ol>
+	</nav>
+{% endblock %}
 
-    {{ include('produto/_form.html.twig') }}
-
-    <a href="{{ path('produto_index') }}">back to list</a>
-  </div>
+{% block conteudo %}
+	<div class="table-responsive">
+		{{ include('produto/_form.html.twig') }}
+	</div>
 {% endblock %}
